@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Ubuntu, sans-serif;
+}
+
+:root {
+    --azul-escuro: rgb(55, 110, 212);
+    --azul-claro: rgb(177, 191, 216);
+    --azul-escuro-hover: rgb(25, 59, 121);
+}
+
+body {
+    background-color: var(--azul-claro);
+    padding-top: 120px;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 50px;
+    background-color: var(--azul-escuro);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.titulo h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.titulo img {
+    width: 92px;
+    height: 95px;
+}
+
+form {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: white;
+    align-items: center;
+    padding: 15px;
+}
+
+.login-titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.login-registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-registro label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.login-registro input {
+    width: 280px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 17px;
+}
+
+.login-registro .input-senha {
+    font-size: 25px;
+}
+
+.botao-entrar {
+    margin-top: 20px;
+    width: 280px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--azul-escuro);
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.botao-entrar:hover {
+    background-color: var(--azul-escuro-hover);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.link-cadastro {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+

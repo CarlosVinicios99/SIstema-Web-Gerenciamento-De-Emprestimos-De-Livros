@@ -10,6 +10,7 @@
     --azul-escuro: rgb(55, 110, 212);
     --azul-claro: rgb(177, 191, 216);
     --azul-escuro-hover: rgb(25, 59, 121);
+    --azul-neon-borda-hover: rgb(61, 206, 250);
 }
 
 .cadastro-container {
@@ -57,8 +58,8 @@
 .botao-cadastrar {
     margin-top: 20px;
     width: 280px;
-    height: 35px;
-    font-size: 18px;
+    height: 40px;
+    font-size: 20px;
     font-weight: 500;
     background-color: var(--azul-escuro);
     color: white;
@@ -69,5 +70,6 @@
 .botao-cadastrar:hover {
     background-color: var(--azul-escuro-hover);
     transition-duration: 0.5s;
+    border: solid 2px var(--azul-neon-borda-hover);
     cursor: pointer;
 }

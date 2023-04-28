@@ -1,0 +1,46 @@
+:root {
+    --azul-escuro: rgb(55, 110, 212);
+    --azul-claro: rgb(177, 191, 216);
+    --azul-escuro-hover: rgb(25, 59, 121);
+    --azul-neon-borda-hover: rgb(61, 206, 250);
+}
+
+h2{
+    font-size: 30px;
+    margin-top: 50px;
+    text-align: center;
+    color: var(--azul-escuro-hover);
+}
+
+.menu-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.opcao-menu {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    height: 50px;
+    width: 300px;
+    background-color: var(--azul-escuro);
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    font-size: 25px;
+}
+
+button:hover {
+    height: 60px;
+    font-size: 27px;
+    background-color: var(--azul-escuro-hover);
+    transition-duration: 0.3s;
+    border: solid 2px var(--azul-neon-borda-hover);
+    cursor: pointer;
+}

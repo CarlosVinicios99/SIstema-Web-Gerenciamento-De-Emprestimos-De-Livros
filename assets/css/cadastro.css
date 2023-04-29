@@ -10,7 +10,7 @@
     --azul-escuro: rgb(55, 110, 212);
     --azul-claro: rgb(177, 191, 216);
     --azul-escuro-hover: rgb(25, 59, 121);
-    --azul-neon-borda-hover: rgb(61, 206, 250);
+    --azul-neon-borda-hover: rgb(0, 195, 255);
 }
 
 .cadastro-container {
@@ -46,9 +46,15 @@
 
 .cadastro-registro input {
     width: 280px;
-    height: 30px;
+    height: 32px;
     padding-left: 5px;
     font-size: 17px;
+    border: solid 1px rgb(82, 82, 82);
+    border-radius: 5px;
+}
+
+.cadastro-registro input:hover{
+    border-color: var(--azul-neon-borda-hover);
 }
 
 .cadastro-registro .input-senha {

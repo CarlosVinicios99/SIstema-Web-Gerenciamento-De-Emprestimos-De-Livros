@@ -1,27 +1,37 @@
 package com.example.web_emprestimo_de_livros.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Livro {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String titulo;
 	
 	private String autor;
 	
+	@Column(unique = true)
 	private String codigo;
 	
 	private String descricao;
 	
 	private String proprietario;
 	
-	private int disponibilidade;
+	private boolean disponibilidade = true;
 	
 	public Livro() {
 		
 	}
 
 	public Livro(Long id, String titulo, String autor, String codigo, String descricao, String proprietario,
-			int disponibilidade) {
+			boolean disponibilidade) {
 		this.id = id;
 		this.titulo = titulo;
 		this.autor = autor;
@@ -78,13 +88,14 @@ public class Livro {
 	public void setProprietario(String proprietario) {
 		this.proprietario = proprietario;
 	}
+	
+	public void setDisponibilidade(boolean disponibilidade) {
+		this.disponibilidade = disponibilidade;
+	}
 
-	public int getDisponibilidade() {
+	public boolean getDisponibilidade() {
 		return disponibilidade;
 	}
 
-	public void setDisponibilidade(int disponibilidade) {
-		this.disponibilidade = disponibilidade;
-	}
 	
 }

@@ -2,10 +2,23 @@ package com.example.web_emprestimo_de_livros.model;
 
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "emprestimos")
 public class Emprestimo {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private Livro livro;
 	
 	private Date dataInicial;

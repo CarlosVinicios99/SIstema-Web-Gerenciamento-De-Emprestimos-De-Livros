@@ -56,6 +56,4 @@ public class Emprestimo {
 		this.dataFinal = dataFinal;
 	}
 	
-	
-	
 }

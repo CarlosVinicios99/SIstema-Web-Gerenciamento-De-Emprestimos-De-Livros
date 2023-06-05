@@ -2,20 +2,37 @@ package com.example.web_emprestimo_de_livros.model;
 
 import java.util.ArrayList;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;
 	
+	@Column(unique = true)
 	private String matricula;
 	
+	@Column(unique = true)
 	private String cpf;
 	
+	@Column(unique = true)
 	private String email;
 	
 	private String senha;
 	
+	@OneToMany(cascade = CascadeType.ALL)
 	private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 	
 	public Usuario() {

@@ -4,14 +4,14 @@
         event.preventDefault()
         const [cpf, senha] = obterInputsDeEntrada()
         const bibliotecario = await obterBibliotecario(cpf, senha)
-        //const usuario = await obterUsuario(cpf, senha)
+        const usuario = await obterUsuario(cpf, senha)
         
         if(bibliotecario != null){
             window.location.href = "../bibliotecario.html"
         }
 
         else if(usuario != null){
-            //direcionar para a pagina de usuario
+            window.location.href = "../usuario.html"
         }
 
         else{
@@ -30,6 +30,19 @@ function obterInputsDeEntrada(){
 async function obterBibliotecario(cpf, senha){
     const url = `http://localhost:8080/bibliotecario?cpf=${cpf}&senha=${senha}`
 
+    try{
+        const response = await fetch(url)
+        const bibliotecario = await response.json()
+        return bibliotecario
+    }
+    catch(error){
+        console.log(`Erro ao buscar bibliotecario: ${error}`)
+        return null
+    }
+}
+
+async function obterUsuario(cpf, senha){
+    const url = `http:localhost:8080/usuario?cpf=${cpf}&senha=${senha}`
     try{
         const response = await fetch(url)
         const usuario = await response.json()

@@ -15,7 +15,7 @@
         }
 
         else{
-            //dados incorretos, mostrar na tela que nao existe usuario com estes dados
+            window.alert("ERRO: Informações de login não correspondem a nenhum usuário cadastrado")
         }
         
     })

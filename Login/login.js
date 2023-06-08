@@ -7,11 +7,11 @@
         const usuario = await obterUsuario(cpf, senha)
         
         if(bibliotecario != null){
-            window.location.href = "../bibliotecario.html"
+            window.location.href = "../Bibliotecario/bibliotecario.html"
         }
 
         else if(usuario != null){
-            window.location.href = "../usuario.html"
+            window.location.href = "../Usuario/usuario.html"
         }
 
         else{
@@ -42,7 +42,7 @@ async function obterBibliotecario(cpf, senha){
 }
 
 async function obterUsuario(cpf, senha){
-    const url = `http:localhost:8080/usuario?cpf=${cpf}&senha=${senha}`
+    const url = `http://localhost:8080/usuario?cpf=${cpf}&senha=${senha}`
     try{
         const response = await fetch(url)
         const usuario = await response.json()
@@ -50,7 +50,7 @@ async function obterUsuario(cpf, senha){
 
     }
     catch(error){
-        console.log(`Erro ao buscar bibliotecario: ${error}`)
+        console.log(`Erro ao buscar usuario: ${error}`)
         return null
     }
 }

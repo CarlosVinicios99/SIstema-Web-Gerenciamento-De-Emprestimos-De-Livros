@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.web_emprestimo_de_livros.model.Bibliotecario;
 import com.example.web_emprestimo_de_livros.model.Usuario;
-import com.example.web_emprestimo_de_livros.service.BibliotecarioService;
+import com.example.web_emprestimo_de_livros.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
@@ -23,7 +22,7 @@ public class UsuarioController {
 	
 	@GetMapping
 	public ResponseEntity<Usuario> obterUsuario(@RequestParam String cpf, @RequestParam String senha) {
-		Bibliotecario obj = usuarioService.obterUsuario(cpf, senha);
+		Usuario obj = usuarioService.obterUsuario(cpf, senha);
 		return ResponseEntity.ok().body(obj);		
 	}
 	

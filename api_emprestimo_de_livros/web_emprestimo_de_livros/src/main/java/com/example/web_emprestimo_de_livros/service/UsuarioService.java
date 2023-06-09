@@ -12,6 +12,11 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	
+	public Usuario criarUsuario(Usuario novoUsuario) {
+		return usuarioRepository.save(novoUsuario);
+	}
+	
 	public Usuario obterUsuario(String cpf, String senha) {
 		Usuario usuarioBuscado = usuarioRepository.findByCpf(cpf);
 		

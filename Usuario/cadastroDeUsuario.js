@@ -27,24 +27,24 @@ async function cadastrarUsuario(){
             })
             if(response.ok) {
                 const data = await response.json();
-                console.log("Usuário inserido com sucesso:", data);
+                window.alert("Usuário cadastrado com sucesso!")
+                window.location.href = "../Login/login.html"
+                
             }
-            window.alert("Usuário cadastrado com sucesso!")
-            window.location.href("../Login/login.html")
         }
         catch(error){
-            console.log(`Erro ao cadastrar usuario: `)
+            console.log(`Erro ao cadastrar usuario: ${error}`)
         }
     }
 }
 
 function obterInputsDeEntrada(){
     const nome = document.querySelector("#inputNome").value
-    const matricula = document.querySelector("inputMatricula").value
+    const matricula = document.querySelector("#inputMatricula").value
     const email = document.querySelector("#inputEmail").value
-    const cpf = document.querySelector("#inputCpf").value
+    const cpf = document.querySelector("#inputCPF").value
     const senha = document.querySelector("#inputSenha").value
-    const senhaConfirmada = document.querySelector("#inputSenhaConfirmada").value
+    const senhaConfirmada = document.querySelector("#inputConfirmacaoDeSenha").value
 
     return [nome, matricula, email, cpf, senha, senhaConfirmada]
 }

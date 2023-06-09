@@ -1,6 +1,7 @@
 package com.example.web_emprestimo_de_livros.model;
 
-import org.hibernate.collection.spi.PersistentBag;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -33,13 +34,13 @@ public class Usuario {
 	private String senha;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private PersistentBag<Emprestimo> emprestimos = new PersistentBag<>();
+	private List<Emprestimo> emprestimos = new ArrayList<>();
 	
 	public Usuario() {
 		
 	}
 
-	public Usuario(Long id, String nome, String matricula, String cpf, String email, String senha, PersistentBag<Emprestimo> emprestimos) {
+	public Usuario(Long id, String nome, String matricula, String cpf, String email, String senha, List<Emprestimo> emprestimos) {
 		this.id = id;
 		this.nome = nome;
 		this.matricula = matricula;
@@ -97,13 +98,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public PersistentBag<Emprestimo> getEmprestimos() {
+	public List<Emprestimo> getEmprestimos() {
 		return emprestimos;
 	}
 
-	public void setEmprestimos(PersistentBag<Emprestimo> emprestimos) {
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
 	}
-	
-	
 }

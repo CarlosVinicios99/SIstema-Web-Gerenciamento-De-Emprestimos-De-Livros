@@ -31,4 +31,8 @@ public class UsuarioService {
 		return  usuarioRepository.findByCpf(cpf);
 	}
 	
+	public void removerUsuario(Usuario usuario) {
+		usuarioRepository.delete(usuario);
+	}
+	
 }

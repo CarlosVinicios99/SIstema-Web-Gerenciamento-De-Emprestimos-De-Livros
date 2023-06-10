@@ -38,4 +38,10 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(obj);		
 	}
 	
+	@GetMapping
+	public ResponseEntity<Usuario> obterUsuario(@RequestParam String cpf){
+		Usuario obj = usuarioService.obterUsuario(cpf);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 }

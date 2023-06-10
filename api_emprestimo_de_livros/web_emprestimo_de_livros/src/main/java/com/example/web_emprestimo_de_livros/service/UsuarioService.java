@@ -27,4 +27,8 @@ public class UsuarioService {
 		return null;
 	}
 	
+	public Usuario obterUsuario(String cpf) {
+		return  usuarioRepository.findByCpf(cpf);
+	}
+	
 }

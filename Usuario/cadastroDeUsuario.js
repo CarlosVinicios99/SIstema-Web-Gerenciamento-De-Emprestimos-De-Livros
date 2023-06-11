@@ -11,7 +11,7 @@ async function cadastrarUsuario(){
     const [nome, matricula, email, cpf, senha, senhaConfirmada] = obterInputsDeEntrada()
     const dadosValidos = validarDadosDoUsuario(nome, matricula, email, cpf, senha, senhaConfirmada)
     if(!dadosValidos){
-        window.alert(" Dados Inválidos! \nPreencha os campos corretamente")
+        window.alert(" Dados Inválidos! \nPreencha os campos corretamente.")
     }
     else{
         const novoUsuario = {nome, matricula, email, cpf, senha}
@@ -26,7 +26,6 @@ async function cadastrarUsuario(){
                 body: JSON.stringify(novoUsuario)
             })
             if(response.ok) {
-                const data = await response.json();
                 window.alert("Usuário cadastrado com sucesso!")
                 window.location.href = "../Login/login.html"
                 
@@ -54,7 +53,7 @@ function validarDadosDoUsuario(nome, matricula, email, cpf, senha, senhaConfirma
         return false
     }
     
-    if(nome === "" || matricula === "" || email === "" || cpf === "", senha === "", senhaConfirmada === ""){
+    if(nome === "" || matricula === "" || email === "" || cpf === "" || senha === "" || senhaConfirmada === ""){
         return false
     }
 

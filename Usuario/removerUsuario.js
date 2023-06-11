@@ -9,7 +9,9 @@
 
 
 async function buscarUsuario(){
-    const url = `http://localhost:8080/usuario?cpf=${cpf}`
+    const cpf = document.querySelector("#inputCPF").value
+
+    const url = `http://localhost:8080/usuario/cpf?cpf=${cpf}`
     try{
         const response = await fetch(url)
         const usuario = await response.json()
@@ -17,10 +19,11 @@ async function buscarUsuario(){
 
         if(usuario != null){
             window.alert(`Tem certeza que deseja excluir o usuario ${usuario.nome}`)
-            excluirUsuario()
-            window.location.href = "./menuusuario.html"
+            excluirUsuario(usuario)
         }
-        window.alert(`Usuario nao existe!`)
+        else{
+            window.alert(`Usuario nao existe!`)
+        }
 
     }
     catch(error){
@@ -28,14 +31,21 @@ async function buscarUsuario(){
     }
 }
 
-async function excluirUsuario(usuario){
-    const url = `http://localhost:8080/usuario/${usuario.id}`
+async function excluirUsuario(usuario) {
+    const url = `http://localhost:8080/usuario/${usuario.id}`;
     try{
-        const response = await fetch(url)
-        const usuario = await response.json()
-        console.log(usuario)
-    }
+        const response = await fetch(url, {method: "DELETE"})
+
+        if(response.ok){
+            console.log('Usuário removido com sucesso');
+            window.alert("Usuário removido com sucesso")
+            window.location.href = "./menuusuario.html"
+        } 
+        else{
+            console.log('Falha ao remover o usuário');
+        }
+    } 
     catch(error){
-        console.log(`Erro ao buscar usuario: ${error}`)
+        console.log(`Erro ao remover usuário: ${error}`);
     }
 }

@@ -6,5 +6,6 @@ import com.example.web_emprestimo_de_livros.model.Livro;
 
 public interface LivroRepository extends JpaRepository<Livro, Long>{
 	
+	Livro findByCodigo(String codigo);
 	
 }

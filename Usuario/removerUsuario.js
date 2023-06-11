@@ -15,7 +15,6 @@ async function buscarUsuario(){
     try{
         const response = await fetch(url)
         const usuario = await response.json()
-        console.log(usuario)
 
         if(usuario != null){
             window.alert(`Tem certeza que deseja excluir o usuario ${usuario.nome}`)

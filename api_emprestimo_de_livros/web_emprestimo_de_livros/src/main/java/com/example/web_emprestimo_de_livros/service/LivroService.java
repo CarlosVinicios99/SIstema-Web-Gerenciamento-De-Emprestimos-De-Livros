@@ -16,5 +16,9 @@ public class LivroService {
 		return livroRepository.save(livro);
 	}
 	
+	public Livro obterLivro(String codigo) {
+		return livroRepository.findByCodigo(codigo);
+	}
+	
 	
 }

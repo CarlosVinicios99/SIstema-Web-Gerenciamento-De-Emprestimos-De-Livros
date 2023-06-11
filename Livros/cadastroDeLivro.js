@@ -33,7 +33,13 @@ async function cadastrarLivro(){
                 const livro = await response.json();
                 console.log(livro)
                 window.alert("Livro cadastrado com sucesso!")
-                window.location.href = "./menulivros.html"
+                
+                if(livro.proprietario !== "biblioteca"){
+                    window.location.href = "../Usuario/usuario.html"
+                }
+                else{
+                    window.location.href = "./menulivros.html"
+                }
             }
         }
         catch(error){

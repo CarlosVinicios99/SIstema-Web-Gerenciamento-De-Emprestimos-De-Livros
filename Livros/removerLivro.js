@@ -39,7 +39,14 @@ async function excluirLivro(livro) {
         if(response.ok){
             console.log('Livro removido com sucesso');
             window.alert("Livro removido com sucesso")
-            window.location.href = "./menulivros.html"
+
+            if(livro.proprietario !== "bibliotecario"){
+                window.location.href = "../Usuario/usuario.html"
+            }
+            
+            else{
+                window.location.href = "./menulivros.html"
+            }
         } 
         else{
             console.log('Falha ao remover o Livro');

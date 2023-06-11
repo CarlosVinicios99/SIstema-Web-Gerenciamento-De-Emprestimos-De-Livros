@@ -32,12 +32,12 @@ async function cadastrarLivro(){
             if(response.ok) {
                 const livro = await response.json();
                 console.log(livro)
-                window.alert("Usuário cadastrado com sucesso!")
-                window.location.href = "./menulivros"
+                window.alert("Livro cadastrado com sucesso!")
+                window.location.href = "./menulivros.html"
             }
         }
         catch(error){
-            console.log(`Erro ao cadastrar usuario: ${error}`)
+            console.log(`Erro ao cadastrar livro: ${error}`)
         }
     }
 }

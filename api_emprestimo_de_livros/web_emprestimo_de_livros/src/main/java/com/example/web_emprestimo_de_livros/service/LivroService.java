@@ -20,5 +20,9 @@ public class LivroService {
 		return livroRepository.findByCodigo(codigo);
 	}
 	
+	public void removerLivro(Long id) {
+		livroRepository.deleteById(id);
+	}
+	
 	
 }

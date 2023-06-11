@@ -17,8 +17,8 @@ async function buscarLivro(){
         const livro = await response.json()
         console.log(livro)
 
-        if(usuario != null){
-            window.alert(`Tem certeza que deseja excluir o usuario ${livro.titulo}`)
+        if(livro != null){
+            window.alert(`Tem certeza que deseja excluir o livro ${livro.titulo}`)
             excluirLivro(livro)
         }
         else{
@@ -31,7 +31,7 @@ async function buscarLivro(){
     }
 }
 
-async function excluirUsuario(usuario) {
+async function excluirLivro(livro) {
     const url = `http://localhost:8080/livro/${livro.id}`;
     try{
         const response = await fetch(url, {method: "DELETE"})
@@ -39,7 +39,7 @@ async function excluirUsuario(usuario) {
         if(response.ok){
             console.log('Livro removido com sucesso');
             window.alert("Livro removido com sucesso")
-            window.location.href = "./menulivro.html"
+            window.location.href = "./menulivros.html"
         } 
         else{
             console.log('Falha ao remover o Livro');

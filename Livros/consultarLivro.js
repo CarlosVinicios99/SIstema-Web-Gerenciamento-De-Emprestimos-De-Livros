@@ -1,16 +1,15 @@
 (function(){
-
     const botaoConsultar = document.querySelector("#botaoConsultar")
     botaoConsultar.addEventListener("click", (event) => {
         event.preventDefault()
-        buscarLivro()
+        buscarLivros()
     })
-})
+})()
 
 async function buscarLivros(){
     const titulo = document.querySelector("#inputTitulo").value
-
-    const url = `http://localhost:8080/livro/${titulo}`
+    console.log(titulo)
+    const url = `http://localhost:8080/livro/consulta?titulo=${titulo}`
     try{
         const response = await fetch(url)
         const livros = await response.json()

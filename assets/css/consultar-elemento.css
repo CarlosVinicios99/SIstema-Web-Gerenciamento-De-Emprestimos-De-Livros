@@ -1,0 +1,43 @@
+.consulta-de-elemento-container {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.titulo-consulta {
+    font-size: 1.88rem;
+    color: #193B79;
+}
+
+.input-elemento {
+    height: 3rem;
+    width: 18rem;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid black
+}
+
+.input-elemento:hover {
+    border-color: rgb(0, 195, 255);
+}
+
+.botao-consultar-elemento {
+    border: none;
+    margin-left: 0.5rem;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: white;
+    border: 1px solid rgb(0, 195, 255);
+    background-color: #376ED4;
+}
+
+.botao-consultar-elemento:hover {
+    background-color: rgb(25, 59, 121);
+    cursor: pointer;
+    transition-duration: 0.4s;
+}

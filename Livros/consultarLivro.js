@@ -30,11 +30,35 @@ async function buscarLivros(){
 
 async function exibirLivros(livros){
     const resultadoDaConsultaContainer = document.querySelector("#resultadoDaConsulta")
+    
+    
     for(let i = 0; i < livros.length; i++){
+        if(i === 0){
+            const divLivro = document.createElement("div")
+            const titulo = document.createElement("span")
+            titulo.innerText = ""
+            titulo.classList.add("titulo-livro")
+            divLivro.appendChild(titulo)
+            divLivro.classList.add("livro-container")
+            resultadoDaConsultaContainer.appendChild(divLivro)
+        }
         const divLivro = document.createElement("div")
         const titulo = document.createElement("span")
-        titulo.innerText = livros[i].titulo
+        const autor = document.createElement("span")
+        const status = document.createElement("span")
+
+        titulo.innerText = "TITULO: " + livros[i].titulo
+        autor.innerText = "AUTOR: " + livros[i].autor
+        status.innerText = livros.disponibilidade ? "DISPONIVEL": "INDISPONIVEL"
+
+        titulo.classList.add("titulo-livro")
+        autor.classList.add("titulo-livro")
+        status.classList.add("titulo-livro")
+
         divLivro.appendChild(titulo)
-        resultadoDaConsultaContainer.appendChild(titulo)
+        divLivro.appendChild(autor)
+        divLivro.appendChild(status)
+        divLivro.classList.add("livro-container")
+        resultadoDaConsultaContainer.appendChild(divLivro)
     }
 }

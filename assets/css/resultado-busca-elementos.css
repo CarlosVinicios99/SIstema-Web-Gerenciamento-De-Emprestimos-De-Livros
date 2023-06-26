@@ -4,17 +4,32 @@
     flex-direction: column;
 }
 
+.titulo-resultados {
+    text-align: center;
+    color: rgb(25, 59, 121);
+}
+
 .livro-container {
     display: flex;
-    padding-left: 25rem;
+    padding-left: 27rem;
     gap: 2rem;
     width: 100%;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    border-bottom: 1px solid black;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+    border-bottom: 4px solid rgb(202, 219, 226);
 }
 
 .titulo-livro {
     font-weight: bold;
     color:  rgb(25, 59, 121);
+}
+
+.status-indisponibilidade {
+    font-weight: bolder;
+    color: rgb(228, 23, 23);
+}
+
+.status-disponibilidade {
+    font-weight: bolder;
+    color: rgb(12, 139, 12);
 }

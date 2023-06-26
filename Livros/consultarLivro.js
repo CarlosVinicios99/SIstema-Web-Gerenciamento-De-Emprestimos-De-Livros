@@ -13,7 +13,6 @@ async function buscarLivros(){
     try{
         const response = await fetch(url)
         const livros = await response.json()
-
         if(livros != null){
             exibirLivros(livros)
         }
@@ -29,9 +28,13 @@ async function buscarLivros(){
 }
 
 async function exibirLivros(livros){
+
     const resultadoDaConsultaContainer = document.querySelector("#resultadoDaConsulta")
-    
-    
+    const tituloResultados = document.createElement("h2")
+    tituloResultados.classList.add("titulo-resultados")
+    tituloResultados.innerText = "Resultados"
+    resultadoDaConsultaContainer.append(tituloResultados)   
+
     for(let i = 0; i < livros.length; i++){
         if(i === 0){
             const divLivro = document.createElement("div")
@@ -49,11 +52,27 @@ async function exibirLivros(livros){
 
         titulo.innerText = "TITULO: " + livros[i].titulo
         autor.innerText = "AUTOR: " + livros[i].autor
-        status.innerText = livros.disponibilidade ? "DISPONIVEL": "INDISPONIVEL"
+        status.innerText = livros[i].disponibilidade ? "DISPONÍVEL": "INDISPONÍVEL"
 
         titulo.classList.add("titulo-livro")
-        autor.classList.add("titulo-livro")
-        status.classList.add("titulo-livro")
+        autor.classList.add("titulo-livro")  
+
+        /*
+        if(livros[i].disponibilidade){
+            status.classList.add("status-disponibilidade")
+        }
+        else{
+            status.classList.add("status-indisponibilidade")
+        }
+        */
+        if(i % 2 === 0){
+            status.innerText = "DISPONÍVEL"
+            status.classList.add("status-disponibilidade")
+        }
+        else{
+            status.innerText = "INDISPONÍVEL" 
+            status.classList.add("status-indisponibilidade")
+        }
 
         divLivro.appendChild(titulo)
         divLivro.appendChild(autor)

@@ -13,17 +13,28 @@ async function buscarLivros(){
     try{
         const response = await fetch(url)
         const livros = await response.json()
-        console.log(livros)
 
         if(livros != null){
-      //      window.alert(`Tem certeza que deseja excluir o livro ${livro.titulo}`)
+            exibirLivros(livros)
         }
         else{
             window.alert(`Livro nao existe!`)
+            return null
         }
 
     }
     catch(error){
         console.log(`Erro ao buscar Livro: ${error}`)
+    }
+}
+
+async function exibirLivros(livros){
+    const resultadoDaConsultaContainer = document.querySelector("#resultadoDaConsulta")
+    for(let i = 0; i < livros.length; i++){
+        const divLivro = document.createElement("div")
+        const titulo = document.createElement("span")
+        titulo.innerText = livros[i].titulo
+        divLivro.appendChild(titulo)
+        resultadoDaConsultaContainer.appendChild(titulo)
     }
 }

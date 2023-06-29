@@ -2,6 +2,7 @@
     const botaoConsultar = document.querySelector("#botaoConsultar")
     botaoConsultar.addEventListener("click", (event) => {
         event.preventDefault()
+        limparBuscaAnterior()
         buscarLivros()
     })
 })()
@@ -57,23 +58,13 @@ async function exibirLivros(livros){
         titulo.classList.add("titulo-livro")
         autor.classList.add("titulo-livro")  
 
-        /*
         if(livros[i].disponibilidade){
             status.classList.add("status-disponibilidade")
         }
         else{
             status.classList.add("status-indisponibilidade")
         }
-        */
-        if(i % 2 === 0){
-            status.innerText = "DISPONÍVEL"
-            status.classList.add("status-disponibilidade")
-        }
-        else{
-            status.innerText = "INDISPONÍVEL" 
-            status.classList.add("status-indisponibilidade")
-        }
-
+        
         divLivro.appendChild(titulo)
         divLivro.appendChild(autor)
         divLivro.appendChild(status)
@@ -81,3 +72,12 @@ async function exibirLivros(livros){
         resultadoDaConsultaContainer.appendChild(divLivro)
     }
 }
+
+function limparBuscaAnterior() {
+    const resultadoDaConsultaContainer = document.querySelector("#resultadoDaConsulta")
+    
+    while (resultadoDaConsultaContainer.firstChild) {
+      resultadoDaConsultaContainer.removeChild(resultadoDaConsultaContainer.firstChild)
+    }
+  }
+  

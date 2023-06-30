@@ -108,7 +108,8 @@ async function exibirLivrosParaAdicionarEmprestimos(livros, usuario){
         contato.classList.add("titulo-livro")
         botaoEmprestimo.classList.add("botao-emprestimo")
 
-        botaoEmprestimo.addEventListener("click", () => {
+        botaoEmprestimo.addEventListener("click", (event) => {
+            event.preventDefault()
             realizarEmprestimo(usuario, livros[i])
         })
 

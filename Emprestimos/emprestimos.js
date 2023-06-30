@@ -39,6 +39,7 @@ async function cadastrarEmprestimos(){
             if(response.ok) {
                 const livros = await response.json();
                 console.log(livros)
+                limparBuscaAnterior()
                 exibirLivrosParaAdicionarEmprestimos(livros, usuario)
             }
             else{
@@ -89,13 +90,27 @@ async function exibirLivrosParaAdicionarEmprestimos(livros, usuario){
         const titulo = document.createElement("span")
         const autor = document.createElement("span")
         const status = document.createElement("span")
+        const proprietario = document.createElement("span")
+        const contato = document.createElement("span")
+        const botaoEmprestimo = document.createElement("button")
+
 
         titulo.innerText = "TITULO: " + livros[i].titulo
         autor.innerText = "AUTOR: " + livros[i].autor
         status.innerText = livros[i].disponibilidade ? "DISPONÍVEL": "INDISPONÍVEL"
+        proprietario.innerText =  "PROPRIETÁRIO: " + livros[i].proprietario
+        botaoEmprestimo.innerText = "Emprestar"
+        
 
         titulo.classList.add("titulo-livro")
         autor.classList.add("titulo-livro")  
+        proprietario.classList.add("titulo-livro")
+        contato.classList.add("titulo-livro")
+        botaoEmprestimo.classList.add("botao-emprestimo")
+
+        botaoEmprestimo.addEventListener("click", () => {
+            realizarEmprestimo(usuario, livros[i])
+        })
 
         if(livros[i].disponibilidade){
             status.classList.add("status-disponibilidade")
@@ -103,10 +118,21 @@ async function exibirLivrosParaAdicionarEmprestimos(livros, usuario){
         else{
             status.classList.add("status-indisponibilidade")
         }
-        
+
         divLivro.appendChild(titulo)
         divLivro.appendChild(autor)
+        divLivro.appendChild(proprietario)
         divLivro.appendChild(status)
+
+        if(livros[i].proprietario !== "biblioteca"){
+            contato.innerText = "CONTATO: " + livros[i].proprietario.replace(" ", "").toLowerCase() + "@email.com"
+            divLivro.append(contato)
+        }
+
+        if(livros[i].proprietario === "biblioteca" && livros[i].disponibilidade){
+            divLivro.appendChild(botaoEmprestimo)
+        }
+       
         divLivro.classList.add("livro-container")
         resultadoDaConsultaContainer.appendChild(divLivro)
     }
@@ -118,4 +144,36 @@ function limparBuscaAnterior() {
     while (resultadoDaConsultaContainer.firstChild) {
       resultadoDaConsultaContainer.removeChild(resultadoDaConsultaContainer.firstChild)
     }
-  }
+}
+
+async function realizarEmprestimo(usuario, livro){
+
+    const url = `http://localhost:8080/emprestimos`
+
+    const emprestimo = {
+        "idLivro": livro.codigo,
+        "idCPF": usuario.cpf
+    }
+
+    try{
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(emprestimo)
+        })
+
+        if(response.ok) {
+            const novoEmprestimo = await response.json();
+            console.log(novoEmprestimo)
+            window.alert("Emprestimo realizado com sucesso!")
+            window.location.href = "../Emprestimos/menuemprestimos.html"
+        }
+    }
+
+    catch(error){
+        console.log(`Erro ao emprestar livro: ${error}`)
+    }
+
+}

@@ -13,7 +13,8 @@
 
 .livro-container {
     display: flex;
-    padding-left: 27rem;
+    padding-left: 14rem;
+    align-items: center;
     gap: 2rem;
     width: 100%;
     padding-bottom: 0.7rem;
@@ -33,5 +34,19 @@
 
 .status-disponibilidade {
     font-weight: bolder;
-    color: rgb(12, 139, 12);
+    color: rgb(23, 151, 23);
+}
+
+.botao-emprestimo {
+    border: 1px solid rgb(0, 255, 34);
+    height: 1.8rem;
+    width: 6rem;
+    color: white;
+    background: rgb(27, 143, 27);
+    cursor: pointer;
+}
+
+.botao-emprestimo:hover{
+    background-color: rgb(16, 99, 16);
+    transition-duration: 0.5s;
 }

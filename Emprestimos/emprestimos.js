@@ -17,11 +17,11 @@ async function cadastrarEmprestimos(){
 
     else{
         let url = `http://localhost:8080/usuario?cpf=${cpf}&senha=${senha}`
-
+        let usuario
         try{
             let response = await fetch(url)
             if(response.ok) {
-                const usuario = await response.json();
+                usuario = await response.json();
                 console.log(usuario)
             }
             else{
@@ -39,6 +39,7 @@ async function cadastrarEmprestimos(){
             if(response.ok) {
                 const livros = await response.json();
                 console.log(livros)
+                exibirLivrosParaAdicionarEmprestimos(livros, usuario)
             }
             else{
                 window.alert("Os dados nao correspondem a nenhum registro!\nTente Novamente!")
@@ -48,8 +49,6 @@ async function cadastrarEmprestimos(){
         catch(error){
             console.log(`Erro ao buscar livro: ${error}`)
         }
-
-        exibirLivros(livros)
     }
 }
 
@@ -68,7 +67,7 @@ function validarDadosDeEmprestimo(cpf, senha, livro){
     return true
 }
 
-async function exibirLivros(livros){
+async function exibirLivrosParaAdicionarEmprestimos(livros, usuario){
 
     const resultadoDaConsultaContainer = document.querySelector("#resultadoDaConsulta")
     const tituloResultados = document.createElement("h2")

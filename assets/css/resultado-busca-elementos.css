@@ -1,5 +1,6 @@
 .resultado-da-consulta-container {
-    margin-top: 5rem;
+    width: 100%;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;

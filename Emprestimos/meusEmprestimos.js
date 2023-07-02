@@ -71,6 +71,7 @@ async function exibirMeusEmprestimos(emprestimos){
         const tituloLivro = document.createElement("span")
         const dataInicial = document.createElement("span")
         const dataFinal = document.createElement("span")
+        const status = document.createElement("span")
 
         const dataInicialConteudo = emprestimos[i].dataInicial
         const dataInicialFormatada = new Date(dataInicialConteudo).toLocaleDateString("pt-BR")
@@ -81,14 +82,23 @@ async function exibirMeusEmprestimos(emprestimos){
         tituloLivro.innerText = "LIVRO: " + emprestimos[i].livro.titulo
         dataInicial.innerText = "DATA INICIAL: " + dataInicialFormatada
         dataFinal.innerText = "DATA FINAL: " + dataFinalFormatada
+        status.innerText += dataFinalFormatada.length > Date.now() ? "COM ATRASO" : "CORRENTE"
     
         tituloLivro.classList.add("titulo-livro")
         dataInicial.classList.add("titulo-livro")
         dataFinal.classList.add("titulo-livro")
+        
+        if(status.innerText === "COM ATRASO"){
+            status.classList.add("status-indisponibilidade")
+        }
+        else{
+            status.classList.add("status-disponibilidade")
+        }
       
         divEmprestimo.appendChild(tituloLivro)
         divEmprestimo.appendChild(dataInicial)
         divEmprestimo.appendChild(dataFinal)
+        divEmprestimo.appendChild(status)
 
         divEmprestimo.classList.add("livro-container")
         resultadoDaConsultaContainer.appendChild(divEmprestimo) 

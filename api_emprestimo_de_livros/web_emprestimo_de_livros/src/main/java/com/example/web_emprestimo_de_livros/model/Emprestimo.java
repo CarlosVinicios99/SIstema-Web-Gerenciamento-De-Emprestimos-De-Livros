@@ -22,7 +22,6 @@ public class Emprestimo {
 	private Livro livro;
 	
 	private Date dataInicial;
-	
 	private Date dataFinal;
 	
 	public Emprestimo() {
@@ -35,6 +34,12 @@ public class Emprestimo {
 		this.livro = livro;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
+	}
+	
+	public Emprestimo(Livro livro) {
+		super();
+		this.livro = livro;
+		definirDatas();
 	}
 
 	public Long getId() {
@@ -67,6 +72,13 @@ public class Emprestimo {
 
 	public void setDataFinal(Date dataFinal) {
 		this.dataFinal = dataFinal;
+	}
+	
+	private void definirDatas(){
+		Long diaEmMilissegundos = 24 * 60 * 60 * 1000L;
+        Long tempoEmprestimo = 7 * diaEmMilissegundos;
+		this.dataInicial = new Date();
+		this.dataFinal = new Date(this.dataInicial.getTime() + tempoEmprestimo);
 	}
 	
 }

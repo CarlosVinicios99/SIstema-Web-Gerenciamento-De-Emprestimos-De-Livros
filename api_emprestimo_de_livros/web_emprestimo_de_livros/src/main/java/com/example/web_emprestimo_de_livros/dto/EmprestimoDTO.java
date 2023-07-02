@@ -13,5 +13,22 @@ public class EmprestimoDTO {
 		this.idLivro = idLivro;
 		this.idUsuario = idUsuario;
 	}
+
+	public Long getIdLivro() {
+		return idLivro;
+	}
+
+	public void setIdLivro(Long idLivro) {
+		this.idLivro = idLivro;
+	}
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 	
+
 }

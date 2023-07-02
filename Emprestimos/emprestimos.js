@@ -152,8 +152,8 @@ async function realizarEmprestimo(usuario, livro){
     const url = `http://localhost:8080/emprestimos`
 
     const emprestimo = {
-        "idLivro": livro.codigo,
-        "idUsuario": usuario.cpf
+        "idLivro": livro.id,
+        "idUsuario": usuario.id
     }
 
     try{

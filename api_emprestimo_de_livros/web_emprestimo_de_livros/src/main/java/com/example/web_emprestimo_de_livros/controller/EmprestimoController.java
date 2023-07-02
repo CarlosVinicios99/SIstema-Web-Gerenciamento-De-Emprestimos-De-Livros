@@ -13,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.web_emprestimo_de_livros.dto.EmprestimoDTO;
 import com.example.web_emprestimo_de_livros.model.Emprestimo;
+import com.example.web_emprestimo_de_livros.service.EmprestimoService;
 
 @RestController
 @CrossOrigin
@@ -23,7 +24,7 @@ public class EmprestimoController {
 	private EmprestimoService emprestimoService;
 	
 	@PostMapping
-	public Emprestimo registrarEmprestimo(@RequestBody EmprestimoDTO emprestimoDTO) {
+	public ResponseEntity<Emprestimo> registrarEmprestimo(@RequestBody EmprestimoDTO emprestimoDTO) {
 		Emprestimo novoEmprestimo = emprestimoService.registrarEmprestimo(emprestimoDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(novoEmprestimo.getId()).toUri();
 		return ResponseEntity.created(uri).body(novoEmprestimo);

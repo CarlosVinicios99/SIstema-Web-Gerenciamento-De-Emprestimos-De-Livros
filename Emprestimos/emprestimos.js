@@ -153,7 +153,7 @@ async function realizarEmprestimo(usuario, livro){
 
     const emprestimo = {
         "idLivro": livro.codigo,
-        "idCPF": usuario.cpf
+        "idUsuario": usuario.cpf
     }
 
     try{

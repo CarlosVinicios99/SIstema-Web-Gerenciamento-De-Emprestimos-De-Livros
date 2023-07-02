@@ -2,6 +2,7 @@ package com.example.web_emprestimo_de_livros.controller;
 
 import java.net.URI;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.example.web_emprestimo_de_livros.model.Emprestimo;
 @RequestMapping("/emprestimos")
 public class EmprestimoController {
 	
+	@Autowired
 	private EmprestimoService emprestimoService;
 	
 	@PostMapping

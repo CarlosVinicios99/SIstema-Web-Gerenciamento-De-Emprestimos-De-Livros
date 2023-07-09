@@ -5,6 +5,8 @@ import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,12 @@ public class EmprestimoController {
 		Emprestimo novoEmprestimo = emprestimoService.registrarEmprestimo(emprestimoDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(novoEmprestimo.getId()).toUri();
 		return ResponseEntity.created(uri).body(novoEmprestimo);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Emprestimo> removerEmprestimo(@PathVariable Long id) {
+		emprestimoService.removerEmprestimo(id);
+		return ResponseEntity.ok().build();
 	}
 	
 }

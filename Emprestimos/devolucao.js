@@ -1,7 +1,7 @@
 (function(){
     const botaoDevolver = document.querySelector("#botaoDevolver")
 
-    botaoRemover.addEventListener("click", (event) => {
+    botaoDevolver.addEventListener("click", (event) => {
         event.preventDefault()
         buscarLivro()
     })  
@@ -31,7 +31,7 @@ async function buscarLivro(){
 }
 
 async function registrarDevolucao(livro) {
-    const url = `http://localhost:8080/emprestimo/${livro.id}`;
+    const url = `http://localhost:8080/emprestimos/${livro.id}`;
     try{
         const response = await fetch(url, {method: "DELETE"})
 

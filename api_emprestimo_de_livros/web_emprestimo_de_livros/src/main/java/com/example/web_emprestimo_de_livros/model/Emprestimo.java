@@ -18,7 +18,7 @@ public class Emprestimo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.DETACH)
 	private Livro livro;
 	
 	private Date dataInicial;

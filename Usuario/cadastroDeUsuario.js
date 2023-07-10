@@ -27,7 +27,7 @@ async function cadastrarUsuario(){
             })
             if(response.ok) {
                 window.alert("Usuário cadastrado com sucesso!")
-                window.location.href = "../Login/login.html"
+                window.location.href = document.referrer
                 
             }
         }

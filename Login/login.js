@@ -27,32 +27,58 @@ function obterInputsDeEntrada(){
     return [cpf, senha]
 }
 
-async function obterBibliotecario(cpf, senha){
-    const url = `http://localhost:8080/bibliotecario?cpf=${cpf}&senha=${senha}`
-
-    try{
-        const response = await fetch(url)
+async function obterBibliotecario(cpf, senha) {
+    const url = "http://localhost:8080/bibliotecario"
+    const data = {
+        cpf,
+        senha
+    }
+  
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+  
         const bibliotecario = await response.json()
         return bibliotecario
-    }
-    catch(error){
-        console.log(`Erro ao buscar bibliotecario: ${error}`)
+    } 
+
+    catch(error) {
+        console.log(`Erro ao buscar bibliotecário: ${error}`)
         return null
     }
 }
-
-async function obterUsuario(cpf, senha){
-    const url = `http://localhost:8080/usuario?cpf=${cpf}&senha=${senha}`
-    try{
-        const response = await fetch(url)
+  
+async function obterUsuario(cpf, senha) {
+    const url = "http://localhost:8080/usuario/login"
+    const data = {
+        cpf,
+        senha
+    }
+  
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+  
         const usuario = await response.json()
         return usuario
-
     }
-    catch(error){
-        console.log(`Erro ao buscar usuario: ${error}`)
+
+    catch (error) {
+        console.log(`Erro ao buscar usuário: ${error}`)
         return null
     }
-}
+
+  }
+  
 
 

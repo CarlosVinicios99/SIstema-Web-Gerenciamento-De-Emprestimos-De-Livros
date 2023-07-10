@@ -34,9 +34,9 @@ public class UsuarioController {
 		return ResponseEntity.created(uri).body(novoUsuario);
 	}
 	
-	@GetMapping
-	public ResponseEntity<Usuario> obterUsuario(@RequestParam String cpf, @RequestParam String senha) {
-		Usuario obj = usuarioService.obterUsuario(cpf, senha);
+	@PostMapping("/login")
+	public ResponseEntity<Usuario> obterUsuario(@RequestBody Usuario usuarioDTO) {
+		Usuario obj = usuarioService.obterUsuario(usuarioDTO.getCpf(), usuarioDTO.getSenha());
 		return ResponseEntity.ok().body(obj);		
 	}
 	

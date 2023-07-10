@@ -13,7 +13,7 @@
 
 .livro-container {
     display: flex;
-    padding-left: 17.5rem;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     width: 100%;

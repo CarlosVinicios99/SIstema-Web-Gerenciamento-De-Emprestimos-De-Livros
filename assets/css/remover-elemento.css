@@ -40,3 +40,20 @@
     background-color: rgb(206, 29, 29);
     transition-duration: 0.4s;
 }
+
+.botao-devolver-elemento {
+    border: none;
+    margin-left: 0.5rem;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: white;
+    border: 1px solid rgb(0, 195, 255);
+    background-color: #376ED4;
+}
+
+.botao-devolver-elemento:hover {
+    background-color: #193B79;
+    transition-duration: 0.4s;
+}
